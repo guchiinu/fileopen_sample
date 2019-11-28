@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "sample.h"
 
 #define FILE_BUFF_SIZE 10
 
