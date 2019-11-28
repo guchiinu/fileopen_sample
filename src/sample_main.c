@@ -4,7 +4,7 @@
 
 int main(void)
 {
-    char *p_filename = "sample.txt"; // ファイル名
+    char *p_filename = "../file/sample.txt"; // ファイル名
     FILE *p_file; // ファイル
     char file_read_buffer[FILE_BUFF_SIZE]; // ファイル読み込み用バッファ
 
