@@ -1,10 +1,12 @@
+-include config.mk
+
 CC      := ${CC}
 CFLAGS  := ${CFLAGS}
 LDFLAGS := ${LDFLAGS}
 PREFIX  := ${PREFIX}
 
 TARGET  := sample
-SRCS    := sample_main.c
+SRCS    := src/sample_main.c
 OBJS    := \$(SRCS:.c=.o)
 
 .PHONY: all clean check install uninstall
