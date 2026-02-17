@@ -1,0 +1,36 @@
+#!/usr/bin/env sh
+set -eu
+
+# defaults
+CC=${CC:-cc}
+CFLAGS=${CFLAGS:-"-O2 -Wall -Wextra -pedantic -std=c11"}
+LDFLAGS=${LDFLAGS:-""}
+PREFIX=${PREFIX:-"/usr/local"}
+
+# allow: ./configure --prefix=/opt/foo
+for arg in "$@"; do
+  case "$arg" in
+    --prefix=*)
+      PREFIX="${arg#*=}"
+      ;;
+    *)
+      echo "Unknown option: $arg" >&2
+      echo "Usage: ./configure [--prefix=PATH]" >&2
+      exit 2
+      ;;
+  esac
+done
+
+# basic sanity checks
+if [ ! -f "sample_main.c" ]; then
+  echo "Error: sample_main.c not found in current directory." >&2
+  exit 1
+fi
+
+echo "Configuration complete."
+echo "  CC=${CC}"
+echo "  CFLAGS=${CFLAGS}"
+echo "  LDFLAGS=${LDFLAGS}"
+echo "  PREFIX=${PREFIX}"
+echo
+echo "Now run: make"
