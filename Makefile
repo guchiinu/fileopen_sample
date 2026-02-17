@@ -15,7 +15,7 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 check: $(TARGET)
-	./$(TARGET) file/sample.txt
+	./$(TARGET) ../file/sample.txt
 
 clean:
 	rm -f $(TARGET) $(OBJS)
